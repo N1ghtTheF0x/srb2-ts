@@ -11,13 +11,17 @@ export type player_ntf_t = Required<player_mntf_t>
 export interface NightTheFox
 {
     input: Input
+    health: number
+    canAttack: boolean
 }
 
 export function NightTheFox(): NightTheFox
 {
 
     const ntf: NightTheFox = {
-        input: Input()
+        input: Input(),
+        health: NTF.MAX_HEALTH,
+        canAttack: false
     }
 
     return ntf
@@ -25,11 +29,18 @@ export function NightTheFox(): NightTheFox
 
 export function isNTF(player: player_t): player is player_mntf_t
 {
-    if(player.mo.skin == NTF.SKIN_NAME) return true
+    if(player.mo && player.mo.skin == NTF.SKIN_NAME) return true
     return false
 }
 export function checkNTF(player: player_mntf_t): player is player_ntf_t
 {
     if(player[NTF.INDEX]) return true
     return false
+}
+
+export function resetNTF(player: player_ntf_t)
+{
+    const night = player[NTF.INDEX]
+
+    night.health = NTF.MAX_HEALTH
 }

@@ -23,6 +23,7 @@ declare function ColorOpposite(color: int): [int, int]
 
 declare type colormap = unknown
 
+/** @noSelf */
 declare interface drawer_i
 {
     patchExists(name: string): boolean
@@ -32,7 +33,7 @@ declare interface drawer_i
     getSprite2Patch(skin: string | int, sprite2: string | int, Super?: boolean, frame?: int, rotation?: int, rollangle?: angle_t): [patch_t, boolean]
     drawScaled(x: fixed_t, y: fixed_t, scale: fixed_t, patch: patch_t, flags: int, c: colormap): nil
     drawStretched(x: fixed_t, y: fixed_t, hscale: fixed_t, vscale: fixed_t, patch: patch_t, flags: int, c: colormap): nil
-    drawNum(x: int, y: int, num: int, flags: int): nil
+    drawNum(x: int, y: int, num: int, flags?: int): nil
     drawPaddedNum(x: int, y: int, num: int, digits: int, flags: int): nil
     drawFill(x: int, y: int, width: int, height: int, color: int): nil
     drawString(x: int, y: int, text: string, flags: int, align: string): nil
@@ -57,7 +58,7 @@ declare interface drawer_i
     RandomChance(p: fixed_t): boolean
 }
 
-    /** @noSelf */
+ /** @noSelf */
 declare namespace hud
 {
     export function enable(huditem: HudItem): nil
@@ -84,7 +85,7 @@ declare function chatprint(output: string, sound: boolean): nil
 declare function chatprintf(player: player_t, output: string, sound: boolean): nil
 declare function freeslot(resource: string, ...resource2: string[]): int[]
 
-declare function addHook(hook: string, fn: Function, extra?: int | string): nil
+declare function addHook(hook: string, fn: (...args: any[]) => any, extra?: int | string): nil
 
 declare function addHook(hook: "IntermissionThinker",fn: (faildedstage: boolean) => void): nil
 declare function addHook(hook: "KeyDown",fn: (keyevent: keyevent_t) => boolean): nil
