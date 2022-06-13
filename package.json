@@ -1,0 +1,16 @@
+{
+  "name": "srb2-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tstl"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript-to-lua": "^1.6.0"
+  },
+  "types": "./src/index.d.ts"
+}

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/vscode-typescript-to-lua/master/tsconfig-schema.json",
+    "compilerOptions": {
+      "target": "esnext",
+      "lib": ["ESNext"],
+      "moduleResolution": "node",
+      "strict": true,
+      "typeRoots": ["./srb2-ts","./srb2-ts/enum","./srb2-ts/special","./srb2-ts/userdata"]
+    },
+    "tstl": {
+      "noImplicitSelf": true,
+      "noHeader": true,
+      "luaLibImport": "none",
+      "noImplicitGlobalVariables": true,
+      "luaBundleEntry": "night/index.ts",
+      "luaBundle": "night.lua",
+      "luaTarget": "5.3"
+    }
+}

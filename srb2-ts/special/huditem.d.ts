@@ -1,0 +1,1 @@
+declare type HudItem = "stagetitle" | "textspectator" | "score" | "time" | "rings" | "lives" | "teamscore" | "weaponrings" | "powerstones" | "nightslink" | "nightsdrill" | "nightsrings" | "nightsscore" | "nightstime" | "nightsrecords" | "rankings" | "coopemeralds" | "tokens" | "tabemblems" | "intermissiontally" | "intermissionmessages"

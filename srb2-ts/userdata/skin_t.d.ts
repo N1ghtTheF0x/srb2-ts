@@ -1,0 +1,40 @@
+
+declare interface skin_t
+{
+    readonly valid: boolean
+    readonly name: string
+    readonly spritedef: unknown
+    readonly wadnum: unknown
+    readonly flags: SkinFlags
+    readonly realname: string
+    readonly hudname: string
+    readonly ability: UINT8
+    readonly ability2: UINT8
+    readonly thokitem: INT32
+    readonly spinitem: INT32
+    readonly revitem: INT32
+    readonly followitem: INT32
+    readonly actionspd: fixed_t
+    readonly mindash: fixed_t
+    readonly maxdash: fixed_t
+    readonly normalspeed: fixed_t
+    readonly runspeed: fixed_t
+    readonly thrustfactor: UINT8
+    readonly accelstart: UINT8
+    readonly acceleration: UINT8
+    readonly jumpfactor: fixed_t
+    readonly radius: fixed_t
+    readonly height: fixed_t
+    readonly spinheight: fixed_t
+    readonly shieldscale: fixed_t
+    readonly camerascale: fixed_t
+    readonly starttranscolor: UINT8
+    readonly prefcolor: UINT8
+    readonly prefoppositecolor: UINT16
+    readonly supercolor: UINT16
+    readonly highresscale: fixed_t
+    readonly contspeed: UINT8
+    readonly contangle: UINT8
+    readonly availability: UINT8
+    readonly soundsid: Sounds[]
+}
