@@ -203,55 +203,7 @@ declare function addHook(hook: "ShouldJingleContinue",fn: (player: player_t, mus
 
     //function super(actor: mobj_t, var1: int, var2: int): nil
 declare function IsPlayerAdmin(player: player_t): boolean
-declare type UserdataTypes = {
-    [typename: string]: any
-    "unknown": unknown
-    "state_t": state_t
-    "mobjinfo_t": mobjinfo_t
-    "sfxinfo_t": sfxinfo_t
-    "skincolor_t": skincolor_t
-    "skincolor_t.ramp": UINT16[]
-    "spriteinfo_t": any
-    "spriteframepivot_t[]": spriteframepivot_t[]
-    "spriteframepivot_t": spriteframepivot_t
-    "taglist": any
-    "mobj_t": mobj_t
-    "mapthing_t": mapthing_t
-    "player_t": player_t
-    "ticcmd_t": ticcmd_t
-    "skin_t": skin_t
-    "player_t.powers": Powers
-    "skin_t.soundsid": SkinSounds[]
-    "skin_t.sprites": any
-    "skin_t.sprites[]": any
-    "vertex_t": vertex_t
-    "line_t": line_t
-    "side_t": side_t
-    "subsector_t": subsector_t
-    "sector_t": sector_t
-    "ffloor_t": ffloor_t
-    "pslope_t": pslope_t
-    "vector2_t": vector2_t
-    "vector3_t": vector3_t
-    "mapheader_t": mapheader_t
-    "polyobj_t": polyobject_t
-    "consvar_t": consvar_t
-    "sector_t.lines": line_t[]
-    "sector_t.taglist": any
-    "line_t.sidenum": any
-    "line_t.args": any
-    "line_t.stringargs": any
-    "mapthing_t.args": any
-    "mapthing_t.stringargs": any
-    "bbox": any
-    "hudinfo_t": hudinfo_t
-    "patch_t": patch_t
-    "colormap": colormap
-    "camera_t": camera_t
-    "action": any
-    "luabanks[]": UINT32[]
-}
-declare function userdataType<Type extends keyof UserdataTypes>(v: UserdataTypes[Type]): v is UserdataTypes[Type]
+declare function userdataType(v: any): string
 declare function reserveLuabanks(): UINT32[]
 declare function registerMetatable(metatable: table_t): nil
 declare function getTimeMicros(): int
