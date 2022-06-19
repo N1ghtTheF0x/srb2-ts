@@ -72,12 +72,12 @@ declare const VERSIONSTRING: string
 declare const mouse: mouse_t
 declare const mouse1: mouse_t
 
-declare const mobjinfo: mobjinfo_t[]
-declare const states: state_t[]
-declare const sfxinfo: sfxinfo_t[]
-declare const sprnames: (string | number)[]
+declare const mobjinfo: {[key in MobjTypes]: mobjinfo_t}
+declare const states: {[key in States]: state_t}
+declare const sfxinfo: {[key in Sounds]: sfxinfo_t}
+declare const sprnames: {[key: number | string]: string | number}
 declare const players: player_t[]
-declare const skins: skin_t[]
+declare const skins: {[key: number | string]: skin_t}
 declare const mapthings: mapthing_t[]
 declare const vertexes: vertex_t[]
 declare const lines: line_t[]
@@ -85,7 +85,7 @@ declare const sides: side_t[]
 declare const subsectors: subsector_t[]
 declare const sectors: sector_t[]
 declare const mapheaderinfo: mapheader_t[]
-declare const hudinfo: hudinfo_t[]
+declare const hudinfo: {[key in HUDItems]: spriteinfo_t}
 declare const spriteinfo: {[key in Sprites]: spriteframepivot_t[]}
 declare const spr2defaults: Sprites[]
 declare const gamekeydown: boolean[]

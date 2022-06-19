@@ -26,3 +26,4 @@
 /// <reference path="./vertex_t.d.ts" />
 /// <reference path="./mouse_t.d.ts" />
 /// <reference path="./keyevent_t.d.ts" />
+/// <reference path="./spriteinfo_t.d.ts" />
