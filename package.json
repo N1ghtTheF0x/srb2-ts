@@ -1,16 +1,29 @@
 {
   "name": "srb2-ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sonic Robo Blast 2 Types for typescript-to-lua",
   "main": "index.js",
   "scripts": {
     "build": "tstl"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "srb2",
+    "types",
+    "typescript-to-lua",
+    "tstl"
+  ],
+  "author": "N1ghtTheF0x",
+  "license": "MIT",
   "devDependencies": {
     "typescript-to-lua": "^1.6.0"
   },
-  "types": "./src/index.d.ts"
+  "peerDependencies": {
+    "typescript-to-lua": "^1.6.0"
+  },
+  "types": "./src/index.d.ts",
+  "files": [
+    "**/*.d.ts"
+  ],
+  "homepage": "https://github.com/N1ghtTheF0x/srb2-ts#readme",
+  "repository": "https://github.com/N1ghtTheF0x/srb2-ts"
 }

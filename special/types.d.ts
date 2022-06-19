@@ -12,4 +12,4 @@ declare type tic_t = UINT32
 
 declare type int = number
 declare type nil = null
-declare type table_t<Content = object> = Content
+declare type table_t<Content = {}> = Content

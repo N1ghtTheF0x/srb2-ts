@@ -65,6 +65,7 @@ declare const server: player_t
 declare var emeralds: number
 declare var token: number
 declare var gravity: number
+declare const _G: any
 declare const VERSION: number
 declare const SUBVERSION: number
 declare const VERSIONSTRING: string
