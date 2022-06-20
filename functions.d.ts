@@ -242,7 +242,7 @@ declare interface DefineGameType
 }
 
 declare function G_AddGametype(t: table_t<DefineGameType>): nil
-declare function G_AddPlayer(skin: string,color: string,name: string,bot: BotType): player_t
+declare function G_AddPlayer(skin: string,color: SkinColors,name: string,bot: BotType): player_t
 declare function G_RemovePlayer(playernum: UINT8): boolean
 declare function G_GametypeUsesLives(): boolean
 declare function G_GametypeUsesCoopLives(): boolean
