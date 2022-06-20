@@ -13,3 +13,5 @@ declare type tic_t = UINT32
 declare type int = number
 declare type nil = null
 declare type table_t<Content = {}> = Content
+
+declare type CanBeNil<Type> = Type | nil | undefined

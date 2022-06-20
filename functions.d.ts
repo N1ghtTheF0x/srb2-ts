@@ -5,6 +5,7 @@ declare function max(a: int, b: int): int
 declare function sin(a: angle_t): fixed_t
 declare function cos(a: angle_t): fixed_t
 declare function tan(a: angle_t): fixed_t
+declare function acos(a: angle_t): angle_t
 declare function FixedAngle(a: fixed_t): angle_t
 declare function AngleFixed(a: angle_t): fixed_t
 declare function InvAngle(a: angle_t): angle_t
@@ -34,10 +35,13 @@ declare interface drawer_i
 {
     patchExists(name: string): boolean
     cachePatch(name: string): patch_t
-    draw(x: int, y: int, patch: patch_t, flags?: int, c?: colormap): nil
     getSpritePatch(sprite: string | int, frame?: int, rotation?: int, rollangle?: angle_t): [patch_t, boolean]
     getSprite2Patch(skin: string | int, sprite2: string | int, frame?: int, rotation?: int, rollangle?: angle_t): LuaMultiReturn<[patch_t, boolean]>
-    getSprite2Patch(skin: string | int, sprite2: string | int, Super?: boolean, frame?: int, rotation?: int, rollangle?: angle_t): LuaMultiReturn<[patch_t, boolean]>
+        getSprite2Patch(skin: string | int, sprite2: string | int, Super?: boolean, frame?: int, rotation?: int, rollangle?: angle_t): LuaMultiReturn<[patch_t, boolean]>
+    getColormap(skin?: string | int,color?: int): colormap
+    getStringColormap(textcolor: int): colormap
+
+    draw(x: int, y: int, patch: patch_t, flags?: int, c?: colormap): nil
     drawScaled(x: fixed_t, y: fixed_t, scale: fixed_t, patch: patch_t, flags?: int, c?: colormap): nil
     drawStretched(x: fixed_t, y: fixed_t, hscale: fixed_t, vscale: fixed_t, patch: patch_t, flags?: int, c?: colormap): nil
     drawCropped(x: fixed_t,y: fixed_t,hscale: fixed_t,vscale: fixed_t,patch: patch_t,flags: int,c: colormap,sx: fixed_t,sy: fixed_t,w: fixed_t,h: fixed_t): nil
@@ -48,20 +52,12 @@ declare interface drawer_i
     drawNameTag(x: int, y: int, text: string, flags?: int, basecolor?: int, outlinecolor?: int): nil
     drawScaledNameTag(x: fixed_t, y: fixed_t, text: string, flags?: int, scale?: int, basecolor?: int, outlinecolor?: int): nil
     drawLevelTitle(x: int,y: int,text: string,flags?: int): nil
+    fadeScreen(color: int,strength: int): nil
+
     stringWidth(text: string, flags?: int, widthtype?: WidthTypes): int
     nameTagWidth(text: string): int
-    levelTitleWidth(text: string): int
     levelTitleHeight(text: string): int
-    getColormap(skin?: string | int,color?: int): colormap
-    getStringColormap(textcolor: int): colormap
-    fadeScreen(color: int,strength: int): nil
-    width(): int
-    height(): int
-    dupx(): LuaMultiReturn<[int, int]>
-    dupy(): LuaMultiReturn<[int, int]>
-    renderer(): "software" | "opengl" | "none"
-    userTransFlag(): int
-    localTransFlag(): int
+    levelTitleWidth(text: string): int
 
     RandomFixed(): fixed_t
     RandomByte(): int
@@ -69,6 +65,14 @@ declare interface drawer_i
     RandomRange(a: int, b: int): int
     SignedRandom(): int
     RandomChance(p: fixed_t): boolean
+
+    width(): int
+    height(): int
+    dupx(): LuaMultiReturn<[int, int]>
+    dupy(): LuaMultiReturn<[int, int]>
+    renderer(): "software" | "opengl" | "none"
+    localTransFlag(): int
+    userTransFlag(): int
 }
 
  /** @noSelf */
@@ -107,20 +111,21 @@ declare function CONS_Printf(player: player_t, text: string): nil
 declare function searchBlockmap(searchtype: "objects", fn: (refmobj: mobj_t,foundmobj: mobj_t) => void, refmobj: mobj_t, x1?: fixed_t, x2?: fixed_t, y1?: fixed_t, y2?: fixed_t): boolean
 declare function searchBlockmap(searchtype: "lines", fn: (refmobj: mobj_t,foundline: line_t) => void, refmobj: mobj_t, x1?: fixed_t, x2?: fixed_t, y1?: fixed_t, y2?: fixed_t): boolean
 
-declare interface input_i
+/** @noSelf */
+declare namespace input
 {
-    gameControlDown(gc: int): boolean
-    gameControl2Down(gc: int): boolean
-    gameControlToKeyNum(gc: int): LuaMultiReturn<[int,int]>
-    gameControl2ToKeyNum(gc: int): LuaMultiReturn<[int,int]>
-    joyAxis(axissel: int): int
-    joy2Axis(axissel: int): int
-    keyNumToName(keynum: int): string
-    keyNumPrintable(keynum: string): boolean
-    shiftKeyNum(keynum: string): int
-    getMouseGrab(): boolean
-    setMouseGrab(grab: boolean): nil
-    getCursorPosition(): LuaMultiReturn<[int,int]>
+    export function gameControlDown(gc: int): boolean
+    export function gameControl2Down(gc: int): boolean
+    export function gameControlToKeyNum(gc: int): LuaMultiReturn<[int,int]>
+    export function gameControl2ToKeyNum(gc: int): LuaMultiReturn<[int,int]>
+    export function joyAxis(axissel: int): int
+    export function joy2Axis(axissel: int): int
+    export function keyNumToName(keynum: int): string
+    export function keyNumPrintable(keynum: string): boolean
+    export function shiftKeyNum(keynum: string): int
+    export function getMouseGrab(): boolean
+    export function setMouseGrab(grab: boolean): nil
+    export function getCursorPosition(): LuaMultiReturn<[int,int]>
 }
 
 declare function print(output: string, ...output2: string[]): nil
@@ -141,6 +146,7 @@ declare function addHook(hook: "PreThinkFrame",fn: () => void): nil
 declare function addHook(hook: "PostThinkFrame",fn: () => void): nil
 declare function addHook(hook: "GameQuit",fn: () => void): nil
 
+/** @noSelf */
 declare interface BotMovement
 {
     forward: boolean
@@ -208,6 +214,13 @@ declare function reserveLuabanks(): UINT32[]
 declare function registerMetatable(metatable: table_t): nil
 declare function getTimeMicros(): int
 
+declare function M_MoveColorAfter(color: UINT16,targ: UINT16): nil
+declare function M_MoveColorBefore(color: UINT16,targ: UINT16): nil
+declare function M_GetColorAfter(color: UINT16): int
+declare function M_GetColorBefore(color: UINT16): int
+
+declare function M_MapNumber(arg: string): int
+
 declare function G_BuildMapName(map?: int): string
 declare function G_BuildMapTitle(map?: int): string
 declare function G_DoReborn(playernum: int): nil
@@ -216,6 +229,7 @@ declare function G_SetCustomExitVars(nextmap?: int, skipstats?: int): nil
 declare function G_ExitLevel(): nil
 declare function G_IsSpecialStage(map?: int): boolean
 
+/** @noSelf */
 declare interface DefineGameType
 {
     name: string
@@ -228,6 +242,8 @@ declare interface DefineGameType
 }
 
 declare function G_AddGametype(t: table_t<DefineGameType>): nil
+declare function G_AddPlayer(skin: string,color: string,name: string,bot: BotType): player_t
+declare function G_RemovePlayer(playernum: UINT8): boolean
 declare function G_GametypeUsesLives(): boolean
 declare function G_GametypeUsesCoopLives(): boolean
 declare function G_GametypeUsesCoopStarposts(): boolean
@@ -322,6 +338,7 @@ declare function P_CreateFloorSpriteSlope(mobj: mobj_t): nil
 declare function P_RemoveFloorSpriteSlope(mobj: mobj_t): nil
 
 declare function P_GetZAt(slope: pslope_t, x: fixed_t, y: fixed_t): fixed_t
+declare function P_ButteredSlope(mobj: mobj_t): nil
 
 declare function P_Thrust(mobj: mobj_t, angle: angle_t, move: fixed_t): nil
 declare function P_SetMobjStateNF(mobj: mobj_t, statenum: int): boolean
@@ -467,6 +484,7 @@ declare function xpcall(call: Function,errortrap: (status: boolean) => void): Lu
 
 declare type thread = unknown
 
+/** @noSelf */
 declare namespace coroutine
 {
     export function create(fn: (...args: any[]) => any): thread
@@ -477,6 +495,7 @@ declare namespace coroutine
     export function yield(...args: any[]): any
 }
 
+/** @noSelf */
 declare namespace string
 {
     export function byte(s: string, start: int, end: int): int
@@ -494,6 +513,7 @@ declare namespace string
     export function upper(s: string): string
 }
 
+/** @noSelf */
 declare namespace table
 {
     export function concat<Content>(t: table_t<Content> , sep: string, start: int, end: int): string
@@ -503,6 +523,7 @@ declare namespace table
     export function sort<Content>(t: table_t<Content> ,comp: (element_a: any, element_b: any) => void): nil
 }
 
+/** @noSelf */
 declare namespace io
 {
     export function open(filename: string,mode: string,callback: (file: file,filename: string) => void): nil
@@ -510,4 +531,59 @@ declare namespace io
     export function close(file: file): boolean | [nil, string, int] | [nil, string]
     export function tmpfile(): file
     export function type(obj: any): string | nil
+}
+
+/** @noSelf */
+declare namespace ease
+{
+    export function linear(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function linear(x: fixed_t,end: fixed_t): fixed_t
+    export function insine(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function insine(x: fixed_t,end: fixed_t): fixed_t
+    export function outsine(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function outsine(x: fixed_t,end: fixed_t): fixed_t
+    export function inoutsine(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inoutsine(x: fixed_t,end: fixed_t): fixed_t
+
+    export function inquad(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inquad(x: fixed_t,end: fixed_t): fixed_t
+    export function outquad(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function outquad(x: fixed_t,end: fixed_t): fixed_t
+    export function inoutquad(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inoutquad(x: fixed_t,end: fixed_t): fixed_t
+
+    export function incubic(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function incubic(x: fixed_t,end: fixed_t): fixed_t
+    export function outcubic(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function outcubic(x: fixed_t,end: fixed_t): fixed_t
+    export function inoutcubic(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inoutcubic(x: fixed_t,end: fixed_t): fixed_t
+
+    export function inquart(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inquart(x: fixed_t,end: fixed_t): fixed_t
+    export function outquart(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function outquart(x: fixed_t,end: fixed_t): fixed_t
+    export function inoutquart(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inoutquart(x: fixed_t,end: fixed_t): fixed_t
+
+    export function inquint(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inquint(x: fixed_t,end: fixed_t): fixed_t
+    export function outquint(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function outquint(x: fixed_t,end: fixed_t): fixed_t
+    export function inoutquint(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inoutquint(x: fixed_t,end: fixed_t): fixed_t
+
+    export function inexpo(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inexpo(x: fixed_t,end: fixed_t): fixed_t
+    export function outexpo(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function outexpo(x: fixed_t,end: fixed_t): fixed_t
+    export function inoutexpo(x: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    export function inoutexpo(x: fixed_t,end: fixed_t): fixed_t
+
+    export function inback(x: fixed_t,start: CanBeNil<fixed_t>,end: CanBeNil<fixed_t>,param?: fixed_t): fixed_t
+    export function inback(x: fixed_t,end: fixed_t): fixed_t
+    export function outback(x: fixed_t,start: CanBeNil<fixed_t>,end: CanBeNil<fixed_t>,param?: fixed_t): fixed_t
+    export function outback(x: fixed_t,end: fixed_t): fixed_t
+    export function inoutback(x: fixed_t,start: CanBeNil<fixed_t>,end: CanBeNil<fixed_t>,param?: fixed_t): fixed_t
+    export function inoutback(x: fixed_t,end: fixed_t): fixed_t
 }

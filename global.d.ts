@@ -9,6 +9,7 @@ declare var stoppedclock: boolean
 declare const netgame: boolean
 declare const multiplayer: boolean
 declare const modeattacking: boolean
+declare const metalrecording: boolean
 declare const splitscreen: boolean
 declare const gamecomplete: boolean
 declare const marathonmode: number
@@ -71,6 +72,8 @@ declare const SUBVERSION: number
 declare const VERSIONSTRING: string
 declare const mouse: mouse_t
 declare const mouse1: mouse_t
+declare const camera: camera_t
+declare const camera2: camera_t
 
 declare const mobjinfo: {[key in MobjTypes]: mobjinfo_t}
 declare const states: {[key in States]: state_t}

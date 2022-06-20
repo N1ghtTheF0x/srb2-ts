@@ -129,7 +129,10 @@ declare interface player_t
     awayviewaiming: angle_t
     spectator: boolean
     outofcoop: boolean
-    readonly bot: UINT8
+    readonly bot: BotType
+    blocked: boolean
+    lastbuttons: UINT16
+    botleader: player_t
     jointime: tic_t
     quittime: tic_t
     fovadd: fixed_t

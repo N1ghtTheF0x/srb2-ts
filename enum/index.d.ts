@@ -50,3 +50,4 @@
 /// <reference path="./v.d.ts" />
 /// <reference path="./wep.d.ts" />
 /// <reference path="./mb.d.ts" />
+/// <reference path="./bot.d.ts"/>
