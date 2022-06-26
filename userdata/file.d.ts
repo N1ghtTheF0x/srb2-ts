@@ -1,4 +1,4 @@
-declare interface file
+declare type file =
 {
     close(): boolean | string | number | null
     flush(): boolean | string | number | null

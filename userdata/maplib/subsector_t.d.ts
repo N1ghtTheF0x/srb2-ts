@@ -1,5 +1,5 @@
 
-declare interface subsector_t
+declare type subsector_t =
 {
     readonly valid: boolean
     readonly sector: sector_t

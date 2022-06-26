@@ -1,5 +1,5 @@
 
-declare interface ffloor_t
+declare type ffloor_t =
 {
     readonly valid: boolean
     topheight: fixed_t

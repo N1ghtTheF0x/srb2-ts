@@ -1,5 +1,4 @@
-
-declare interface patch_t
+declare type patch_t =
 {
     readonly valid: boolean
     readonly width: INT16

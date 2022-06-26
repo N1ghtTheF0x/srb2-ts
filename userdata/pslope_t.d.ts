@@ -1,5 +1,4 @@
-
-declare interface pslope_t
+declare type pslope_t =
 {
     readonly valid: boolean
     readonly o: vector3_t

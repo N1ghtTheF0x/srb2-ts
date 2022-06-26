@@ -1,5 +1,4 @@
-
-declare interface ticcmd_t
+declare type ticcmd_t =
 {
     forwardmove: SINT8
     sidemove: SINT8

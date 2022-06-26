@@ -1,5 +1,4 @@
-
-declare interface spriteframepivot_t
+declare type spriteframepivot_t =
 {
     x: INT32
     y: INT32

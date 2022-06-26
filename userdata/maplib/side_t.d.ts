@@ -1,5 +1,5 @@
 
-declare interface side_t
+declare type side_t =
 {
     readonly valid: boolean
     textureoffset: fixed_t

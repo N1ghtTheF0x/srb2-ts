@@ -1,5 +1,4 @@
-
-declare interface mobj_t
+declare type mobj_t =
 {
     readonly valid: boolean
     readonly x: fixed_t

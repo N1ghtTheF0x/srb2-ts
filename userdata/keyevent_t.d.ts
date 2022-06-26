@@ -1,4 +1,4 @@
-declare interface keyevent_t
+declare type keyevent_t =
 {
     readonly name: string
     readonly num: INT32

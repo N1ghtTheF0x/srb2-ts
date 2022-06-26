@@ -1,5 +1,4 @@
-
-declare interface mapthing_t
+declare type mapthing_t =
 {
     readonly valid: boolean
     x: INT16

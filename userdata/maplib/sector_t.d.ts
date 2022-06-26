@@ -1,5 +1,5 @@
 
-declare interface sector_t
+declare type sector_t =
 {
     readonly valid: boolean
     floorheight: fixed_t

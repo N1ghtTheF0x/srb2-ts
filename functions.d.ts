@@ -31,7 +31,7 @@ declare type AlignmentTypes = "left" | "right" | "center" | "fixed" | "fixed-cen
 declare type WidthTypes = "normal" | "small" | "thin"
 
 /** @noSelf */
-declare interface drawer_i
+declare type drawer_i
 {
     patchExists(name: string): boolean
     cachePatch(name: string): patch_t
@@ -89,7 +89,7 @@ declare namespace hud
     export function add(func: (v: drawer_i) => void,hook: "intermission"): nil
 }
 
-declare interface DefineConsoleVariable
+declare type DefineConsoleVariable
 {
     name: string
     defaultvalue: string
@@ -147,7 +147,7 @@ declare function addHook(hook: "PostThinkFrame",fn: () => void): nil
 declare function addHook(hook: "GameQuit",fn: () => void): nil
 
 /** @noSelf */
-declare interface BotMovement
+declare type BotMovement =
 {
     forward: boolean
     backward: boolean
@@ -230,7 +230,7 @@ declare function G_ExitLevel(): nil
 declare function G_IsSpecialStage(map?: int): boolean
 
 /** @noSelf */
-declare interface DefineGameType
+declare type DefineGameType =
 {
     name: string
     identifier: string

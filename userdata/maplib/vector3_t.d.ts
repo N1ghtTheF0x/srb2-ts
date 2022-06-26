@@ -1,5 +1,5 @@
 
-declare interface vector3_t
+declare type vector3_t =
 {
     x: fixed_t
     y: fixed_t

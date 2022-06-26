@@ -1,5 +1,4 @@
-
-declare interface skincolor_t
+declare type skincolor_t =
 {
     name: string
     ramp: UINT8[]

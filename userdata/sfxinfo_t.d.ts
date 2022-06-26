@@ -1,5 +1,4 @@
-
-declare interface sfxinfo_t
+declare type sfxinfo_t =
 {
     readonly name: string
     singular: boolean

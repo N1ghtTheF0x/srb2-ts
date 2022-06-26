@@ -1,5 +1,4 @@
-
-declare interface mobjinfo_t
+declare type mobjinfo_t =
 {
     doomednum: INT32
     spawnstate: States

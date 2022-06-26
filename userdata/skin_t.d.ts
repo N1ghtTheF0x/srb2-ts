@@ -1,5 +1,4 @@
-
-declare interface skin_t
+declare type skin_t =
 {
     readonly valid: boolean
     readonly name: string

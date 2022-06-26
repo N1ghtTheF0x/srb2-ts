@@ -1,0 +1,3 @@
+declare function searchBlockmap(searchtype: "objects", fn: (refmobj: mobj_t,foundmobj: mobj_t) => void, refmobj: mobj_t, x1?: fixed_t, x2?: fixed_t, y1?: fixed_t, y2?: fixed_t): boolean
+declare function searchBlockmap(searchtype: "lines", fn: (refmobj: mobj_t,foundline: line_t) => void, refmobj: mobj_t, x1?: fixed_t, x2?: fixed_t, y1?: fixed_t, y2?: fixed_t): boolean
+declare function searchBlockmap(searchtype: "polyobjs",fn: (refmobj: mobj_t,foundpolyobj: polyobject_t) => void, refmobj: mobj_t, x1?: fixed_t, x2?: fixed_t, y1?: fixed_t, y2?: fixed_t): boolean

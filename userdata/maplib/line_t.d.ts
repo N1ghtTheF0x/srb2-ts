@@ -1,5 +1,5 @@
 
-declare interface line_t
+declare type line_t =
 {
     readonly valid: boolean
     readonly v1: vertex_t

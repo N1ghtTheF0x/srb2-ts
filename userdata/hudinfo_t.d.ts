@@ -1,4 +1,4 @@
-declare interface hudinfo_t
+declare type hudinfo_t =
 {
     x: INT32
     y: INT32

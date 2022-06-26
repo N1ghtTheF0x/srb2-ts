@@ -1,5 +1,4 @@
-
-declare interface polyobject_t
+declare type polyobject_t =
 {
     readonly valid: boolean
     readonly id: INT32

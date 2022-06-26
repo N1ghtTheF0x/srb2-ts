@@ -1,4 +1,4 @@
-declare interface player_t
+declare type player_t =
 {
     readonly valid: boolean
     readonly name: string

@@ -1,5 +1,4 @@
-
-declare interface state_t
+declare type state_t =
 {
     sprite: Sprites
     frame: UINT32

@@ -1,4 +1,4 @@
-declare interface mouse_t
+declare type mouse_t =
 {
     readonly dx: INT32
     readonly dy: INT32
