@@ -3,23 +3,23 @@ declare type mobj_t =
     readonly valid: boolean
     readonly x: fixed_t
     readonly y: fixed_t
-    readonly Z: fixed_t
+    readonly z: fixed_t
     readonly snext: mobj_t
-    sprev: unknown
+    sprev: never
     angle: angle_t
+    pitch: angle_t
+    roll: angle_t
     rollangle: angle_t
     sprite: Sprites
     frame: UINT32
     sprite2: UINT16
     anim_duration: UINT32
-    renderflags: UINT32
-    blendmode: BlendModes
     spritexscale: fixed_t
     spriteyscale: fixed_t
     spritexoffset: fixed_t
     spriteyoffset: fixed_t
     floorspriteslope: pslope_t
-    touching_sectorlist: unknown
+    touching_sectorlist: never
     readonly subsector: subsector_t
     readonly floorz: fixed_t
     readonly ceilingz: fixed_t
@@ -33,14 +33,17 @@ declare type mobj_t =
     pmomz: fixed_t
     tics: INT32
     state: States
-    flags: UINT32
-    flags2: UINT32
+    flags: ObjectFlags
+    flags2: ObjectFlags
     eflags: UINT16
+    renderflags: UINT32
     skin: string
     color: SkinColors
-    colorized: boolean
+    blendmode: BlendModes
     readonly bnext: mobj_t
-    bprev: unknown
+    bprev: never
+    hnext: mobj_t
+    hprev: mobj_t
     type: MobjTypes
     readonly info: mobjinfo_t
     health: INT32
@@ -58,7 +61,7 @@ declare type mobj_t =
     fuse: INT32
     watertop: fixed_t
     waterbottom: fixed_t
-    mobjnum: unknown
+    mobjnum: never
     scale: fixed_t
     destscale: fixed_t
     scalespeed: fixed_t
@@ -67,6 +70,7 @@ declare type mobj_t =
     cusval: INT32
     cvmem: INT32
     readonly standingslope: pslope_t
+    colorized: boolean
     mirrored: boolean
     shadowscale: fixed_t
     [key: string]: any

@@ -16,4 +16,5 @@ declare type ffloor_t =
     readonly next: ffloor_t
     readonly prev: ffloor_t
     alpha: INT32
+    blend: INT32
 }

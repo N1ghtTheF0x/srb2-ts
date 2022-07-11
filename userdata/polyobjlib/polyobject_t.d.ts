@@ -12,4 +12,9 @@ declare type polyobject_t =
     flags: INT32
     translucency: INT32
     readonly triggertag: INT32
+    pointInside(x: fixed_t,y: fixed_t): boolean
+    mobjTouching(mo: mobj_t): boolean
+    mobjInside(mo: mobj_t): boolean
+    moveXY(x: fixed_t,y: fixed_t,checkmobjs?: boolean): boolean
+    rotate(delta: angle_t,turnthings?: UINT8,checkmobjs?: boolean): boolean
 }

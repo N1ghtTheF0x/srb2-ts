@@ -5,7 +5,7 @@ declare const ultimatemode: boolean
 declare const mariomode: boolean
 declare const twodlevel: boolean
 declare const circuitmap: boolean
-declare const stoppedclock: boolean
+declare var stoppedclock: boolean
 declare const netgame: boolean
 declare const multiplayer: boolean
 declare const modeattacking: boolean
@@ -17,8 +17,8 @@ declare const devparm: boolean
 declare const modifiedgame: boolean
 declare const menuactive: boolean
 declare const paused: boolean
-declare const bluescore: int
-declare const redscore: int
+declare var bluescore: int
+declare var redscore: int
 declare const timelimit: int
 declare const pointlimit: int
 declare const spstage_start: int
@@ -29,7 +29,46 @@ declare const titlemapinaction: boolean
 declare const bootmap: int
 declare const tutorialmap: int
 declare const tutorialmode: int
-/* 
-TODO: Add more
-https://github.com/STJr/SRB2/blob/098fcaa4b096bd2a67801732222429b125b20978/src/lua_script.c
-*/
+declare var skincolor_redteam: int
+declare var skincolor_blueteam: int
+declare var skincolor_redring: int
+declare var skincolor_bluering: int
+declare const invulntics: int
+declare const sneakertics: int
+declare const flashingtics: int
+declare const tailsflytics: int
+declare const underwatertics: int
+declare const spacetimetics: int
+declare const extralifetics: int
+declare const nightslinktics: int
+declare const gameovertics: int
+declare const ammoremovaltics: int
+declare const gametype: int
+declare const gametyperules: int
+declare const leveltime: int
+declare const sstimer: int
+declare const curWeather: number
+declare const globalweather: number
+declare const levelskynum: number
+declare const globallevelskynum: number
+declare var mapmusname: string
+declare var mapmusflags: number
+declare const mapmusposition: number
+declare const consoleplayer: CanBeNil<player_t>
+declare var displayplayer: CanBeNil<player_t>
+declare const secondarydisplayplayer: CanBeNil<player_t>
+declare const isserver: boolean
+declare const isdedicatedserver: boolean
+declare const server: CanBeNil<player_t>
+declare var emeralds: number
+declare var gravity: number
+declare const VERSION: number
+declare const SUBVERSION: number
+declare const VERSIONSTRING: string
+declare var token: number
+declare const gamestate: int
+declare const stagefailed: boolean
+declare const mouse: mouse_t
+declare const mouse2: mouse_t
+declare const camera: camera_t
+declare const camera2: camera_t

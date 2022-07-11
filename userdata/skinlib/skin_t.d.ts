@@ -2,17 +2,17 @@ declare type skin_t =
 {
     readonly valid: boolean
     readonly name: string
-    readonly spritedef: unknown
-    readonly wadnum: unknown
+    readonly wadnum: never
     readonly flags: SkinFlags
     readonly realname: string
     readonly hudname: string
-    readonly ability: UINT8
-    readonly ability2: UINT8
-    readonly thokitem: INT32
-    readonly spinitem: INT32
-    readonly revitem: INT32
-    readonly followitem: INT32
+    //readonly spritedef: unknown
+    readonly ability: CharacterAbilities
+    readonly ability2: CharacterAbilities
+    readonly thokitem: MobjTypes
+    readonly spinitem: MobjTypes
+    readonly revitem: MobjTypes
+    readonly followitem: MobjTypes
     readonly actionspd: fixed_t
     readonly mindash: fixed_t
     readonly maxdash: fixed_t
@@ -29,11 +29,12 @@ declare type skin_t =
     readonly camerascale: fixed_t
     readonly starttranscolor: UINT8
     readonly prefcolor: UINT8
-    readonly prefoppositecolor: UINT16
     readonly supercolor: UINT16
+    readonly prefoppositecolor: UINT16
     readonly highresscale: fixed_t
     readonly contspeed: UINT8
     readonly contangle: UINT8
-    readonly availability: UINT8
+    //readonly availability: UINT8
     readonly soundsid: Sounds[]
+    readonly spites: Sprites[]
 }
