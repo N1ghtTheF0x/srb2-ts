@@ -2,8 +2,8 @@ declare type player_t =
 {
     readonly valid: boolean
     readonly name: string
-    mo: mobj_t
     realmo: mobj_t
+    mo: CanBeNil<mobj_t>
     cmd: ticcmd_t
     playerstate: PlayerStates
     camerascale: fixed_t
@@ -29,17 +29,18 @@ declare type player_t =
     flashcount: UINT16
     flashpal: UINT16
     skincolor: SkinColors
+    readonly skin: INT32
+    readonly availabilities: UINT32
     score: UINT32
-    dashmode: tic_t
     dashspeed: fixed_t
     normalspeed: fixed_t
     runspeed: fixed_t
     thrustfactor: fixed_t
     accelstart: fixed_t
     acceleration: fixed_t
-    charability: UINT8
-    charability2: UINT8
-    charflags: UINT32
+    charability: CharacterAbilities
+    charability2: CharacterAbilities
+    charflags: SkinFlags
     thokitem: MobjTypes
     spinitem: MobjTypes
     revitem: MobjTypes
@@ -61,9 +62,10 @@ declare type player_t =
     scoreadd: UINT8
     glidetime: tic_t
     climbing: UINT8
-    deadtime: INT32
+    deadtimer: INT32
     exiting: tic_t
     homing: UINT8
+    dashmode: tic_t
     skidtime: tic_t
     cmomx: fixed_t
     cmomy: fixed_t
@@ -107,6 +109,8 @@ declare type player_t =
     marebegunat: tic_t
     startedtime: tic_t
     finishedtime: tic_t
+    lapbegunat: tic_t
+    lapstartedtime: tic_t
     finishedrings: INT16
     marescore: UINT32
     lastmarescore: UINT32
@@ -130,9 +134,9 @@ declare type player_t =
     spectator: boolean
     outofcoop: boolean
     readonly bot: BotType
-    blocked: boolean
-    lastbuttons: UINT16
     botleader: player_t
+    lastbuttons: UINT16
+    blocked: boolean
     jointime: tic_t
     quittime: tic_t
     fovadd: fixed_t

@@ -79,7 +79,6 @@ declare const mobjinfo: {[key in MobjTypes]: mobjinfo_t}
 declare const states: {[key in States]: state_t}
 declare const sfxinfo: {[key in Sounds]: sfxinfo_t}
 declare const sprnames: {[key: number | string]: string | number}
-declare const players: player_t[]
 declare const hudinfo: {[key in HUDItems]: spriteinfo_t}
 declare const spriteinfo: {[key in Sprites]: spriteframepivot_t[]}
 declare const spr2defaults: Sprites[]

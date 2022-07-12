@@ -33,5 +33,5 @@ declare enum Powers
     pw_ignorelatch
 }
 declare type PowersArray = {
-    [key in Powers]: UINT8
+    [key in Powers]: UINT16
 }
