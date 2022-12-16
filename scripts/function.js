@@ -40,10 +40,10 @@ function extractFunctionParameters(param)
      */
     function parse(arg)
     {
-        const [type,typeName] = arg.split(" ")
-        return `${typeName.replace("[","").replace("]","")}: ${type}`
+        const [type,typeName] = arg.replaceAll("[","").replaceAll("]","").replaceAll("/"," | ").split(" ")
+        return `${typeName}: ${type}`
     }
-
+    if(param.length == 0) return ""
     const args = param.split(", ")
     
     if(args.length == 1) return parse(args[0])

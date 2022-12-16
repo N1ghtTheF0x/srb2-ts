@@ -7,7 +7,7 @@ const indexdts = resolve(folder,"index.d.ts")
 
 const cr = (path: string) => `/// <reference path="./${path}" />\n`
 
-const files = readdirSync(folder).filter((file) => file.endsWith(".d.ts") || file == "index.d.ts")
+const files = readdirSync(folder).filter((file) => file != "index.d.ts")
 
 writeFileSync(indexdts,"","utf-8")
 for(const file of files) appendFileSync(indexdts,cr(file),"utf-8")
