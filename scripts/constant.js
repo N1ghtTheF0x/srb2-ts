@@ -1,0 +1,1 @@
+const defineConstant = (name,value) => `declare const ${name} = ${value}`
