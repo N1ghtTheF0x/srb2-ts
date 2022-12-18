@@ -1,5 +1,6 @@
 type thread<Func extends LuaFunction> = unknown
 
+/** @noSelf **/
 declare namespace coroutine
 {
         /**

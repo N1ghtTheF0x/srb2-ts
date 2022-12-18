@@ -1,5 +1,4 @@
 {
-    "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
     "compilerOptions": {
         "module": "CommonJS",
         "target": "esnext",
@@ -11,9 +10,5 @@
     "exclude": [
         "node_modules",
         "**/node_modules/*"
-    ],
-    "tstl": {
-        "noImplicitGlobalVariables": true,
-        "noImplicitSelf": true
-    }
+    ]
 }

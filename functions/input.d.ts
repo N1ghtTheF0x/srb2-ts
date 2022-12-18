@@ -1,4 +1,5 @@
 /**
+ * @noSelf
  * These are functions included in SRB2's input library. They relate to client-side input events and are all prefixed with input. The keynum or keyname arguments required for some of these functions are obtainable from keyevent_t variables provided by KeyUp or KeyDown hooks.
  */
 declare namespace input

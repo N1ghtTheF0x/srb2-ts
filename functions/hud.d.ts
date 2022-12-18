@@ -2,6 +2,7 @@ declare type HudItem = ""
 
 declare type colormap = unknown
 /**
+ * @noSelf
  * These functions can only be used within functions hooked with hud.add. Note that the v prefix given to all functions listed here is adjustable – this can be any name you like, e.g., drawer.draw can be used instead of v.draw, if the name of the first argument in the hud.add function is given as drawer instead of v.
  */
 declare class Drawer
@@ -262,15 +263,15 @@ Notes:
 stplyr is the player the HUD is being shown for
 cam is the camera used by stplyr
      */
-    "game": (v: Drawer,stplyr: player_t,cam: camera_t) => void
+    "game": (this: void,v: Drawer,stplyr: player_t,cam: camera_t) => void
     /**
      * 	The function is run when the Rankings/Scores HUD is displayed.
      */
-    "scores": (v: Drawer) => void
+    "scores": (this: void,v: Drawer) => void
     /**
      * The function is run when the Title Screen is displayed.
      */
-    "title": (v: Drawer) => void
+    "title": (this: void,v: Drawer) => void
     /**
      * The function is run when the stage's level title card is displayed.
 Notes:
@@ -278,11 +279,11 @@ Notes:
 ticker is the amount of time, in tics, that the title card has been displayed
 endtime is the value of ticker at which the title card will stop displaying
      */
-    "titlecard": (v: Drawer,stplyr: player_t,ticker: int,endtime: int) => void
+    "titlecard": (this: void,v: Drawer,stplyr: player_t,ticker: int,endtime: int) => void
     /**
      * The function is run when intermissions between levels are displayed.
      */
-    "intermission": (v: Drawer) => void
+    "intermission": (this: void,v: Drawer) => void
 }
 /**
  * These are the functions included in SRB2's HUD library. These functions relate to the head-up display, and are all prefixed with hud. (aside from the patch/string drawing functions). Where they are required, the coordinates provided to these functions should be for the base 320×200 pixel resolution – such that x is a value between 0 and 320 (measured from the left of the screen), y is a value between 0 and 200 (measured from the top of the screen), and x = 0, y = 0 is the top-left corner of the screen. These values will automatically be adjusted by the game for other resolutions.

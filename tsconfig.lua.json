@@ -1,0 +1,29 @@
+{
+    "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "esnext",
+        "lib": ["ESNext"],
+        "moduleResolution": "node",
+        "strict": true,
+        "types": ["@typescript-to-lua/language-extensions","."],
+        "outDir": "tests/out"
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ],
+    "tstl": {
+        "noImplicitGlobalVariables": true,
+        "noImplicitSelf": true,
+        "luaTarget": "5.2",
+        "noHeader": true,
+        "luaLibImport": "none",
+        "luaPlugins": [
+            {
+                "name": "./plugin.ts"
+            }
+        ]
+    },
+    "include": ["tests"]
+}

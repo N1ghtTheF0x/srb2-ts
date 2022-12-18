@@ -1,4 +1,5 @@
 /**
+ * @noSelf
  * Note: Most of these functions are not designed for tables with non-integer keys.
  */
 declare namespace table

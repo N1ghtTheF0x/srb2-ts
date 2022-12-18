@@ -3,6 +3,7 @@ type Filename = `${string}.${Fileextensions}`
 type OpenModeB = "r" | "w" | "a" | "r+" | "w+" | "a+"
 type OpenMode = `${OpenModeB}b` | OpenModeB
 /**
+ * @noSelf
  * Some functions have been removed or tweaked for usage in SRB2.
 
 For safety reasons, Lua scripts are subject to some restrictions:

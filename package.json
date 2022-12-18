@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tstl -p tsconfig.lua.json",
     "cr": "ts-node ./scripts/cr.ts"
   },
   "repository": {
