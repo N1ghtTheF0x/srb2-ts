@@ -5,7 +5,8 @@
   "main": "index.d.ts",
   "scripts": {
     "test": "tstl -p tsconfig.lua.json",
-    "cr": "ts-node ./scripts/cr.ts"
+    "cr": "ts-node ./scripts/cr.ts",
+    "enum": "ts-node ./scripts/enum.ts"
   },
   "repository": {
     "type": "git",
