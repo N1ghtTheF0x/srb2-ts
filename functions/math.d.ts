@@ -94,3 +94,22 @@ declare function FixedCeil(a: fixed_t): fixed_t
  * Returns the value of a rounded to the nearest whole number away from 0 in the fixed-point scale.
  */
 declare function FixedRound(a: fixed_t): fixed_t
+
+type EaseOut<Name extends string> = `out${Name}`
+type EaseIn<Name extends string>  = `in${Name}`
+type EaseInOut<Name extends string>  = `inout${Name}`
+type EaseType = "sine" | "quad" | "cubic" | "quart" | "quint" | "expo" | "back"
+type EaseAll = EaseOut<EaseType> | EaseIn<EaseType> | EaseInOut<EaseType> | "linear"
+
+type EaseFunction = {
+    (t: fixed_t): fixed_t
+    (t: fixed_t,end: fixed_t): fixed_t
+    (t: fixed_t,start: fixed_t,end: fixed_t): fixed_t
+    (t: fixed_t,start?: int,end?: int,param?: fixed_t): fixed_t
+}
+
+type EaseNamespace = {
+    readonly [functions in EaseAll]: EaseFunction
+}
+
+declare const ease: EaseNamespace
