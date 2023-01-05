@@ -1,4 +1,4 @@
-declare class polyobj_t
+declare class polyobj_t extends UserData
 {/**
  * Special function to check if a XY position is inside the bounds of the PolyObject.
  */

@@ -1,4 +1,4 @@
-declare class patch_t
+declare class patch_t extends UserData
 {/**
  * Returns true if the patch is valid (i.e., it exists), false if not.
  */

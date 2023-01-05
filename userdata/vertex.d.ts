@@ -1,4 +1,4 @@
-declare class vertex_t
+declare class vertex_t extends UserData
 {/**
  * Returns true if the vertex is valid (i.e., it exists), false if not.
  */

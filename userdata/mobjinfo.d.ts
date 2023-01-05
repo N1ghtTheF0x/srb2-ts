@@ -1,4 +1,4 @@
-declare class mobjinfo_t
+declare class mobjinfo_t extends UserData
 {/**
  * MapThingNum: The Thing type number, should be a number between 1 and 4095. If set to -1, the Object type cannot be placed through Things on the map.
  */

@@ -1,4 +1,4 @@
-declare class subsector_t
+declare class subsector_t extends UserData
 {/**
  * Returns true if the subsector is valid (i.e., it exists), false if not.
  */

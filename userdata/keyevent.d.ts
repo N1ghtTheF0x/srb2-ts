@@ -1,4 +1,4 @@
-declare class keyevent_t
+declare class keyevent_t extends UserData
 {/**
  * The name of the key that triggered this event.
  */

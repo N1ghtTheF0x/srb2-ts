@@ -1,3 +1,4 @@
+/// <reference path="./special/index.d.ts" />
 /// <reference path="./globals/index.d.ts" />
 /// <reference path="./constants/index.d.ts" />
 /// <reference path="./userdata/index.d.ts" />

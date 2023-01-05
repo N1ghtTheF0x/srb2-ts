@@ -1,4 +1,4 @@
-declare class consvar_t
+declare class consvar_t extends UserData
 {/**
  * The name of the console variable, as it should be written in the console.
  */

@@ -1,18 +1,8 @@
-import { MEME } from "./sauce"
+const and = $band(10,10)
+const or = $bor(10,10)
+const xor = $bxor(10,10)
+const not = $bnot(10)
+const leftShift = $bls(10,10)
+const rightShift = $brs(10,10)
 
-addHook("JumpSpecial",(player) =>
-{
-    const m = player.acceleration
-
-    const s = cos(m)
-
-    return false
-})
-
-hud.add((v) =>
-{
-    const patch = v.cachePatch("SAUCE")
-    v.draw(0,0,patch)
-    input.gameControl2Down(0)
-    print(MEME)
-},"game")
+const mix = $band($bls(10,20),$brs(340,40))

@@ -1,4 +1,4 @@
-declare class mapheader_t
+declare class mapheader_t extends UserData
 {/**
  * LevelName
  */

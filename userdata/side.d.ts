@@ -1,4 +1,4 @@
-declare class side_t
+declare class side_t extends UserData
 {/**
  * Returns true if the sidedef is valid (i.e., it exists), false if not.
  */

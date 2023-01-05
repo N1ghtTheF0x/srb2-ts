@@ -16,12 +16,12 @@
     "tstl": {
         "noImplicitGlobalVariables": true,
         "noImplicitSelf": true,
-        "luaTarget": "5.2",
+        "luaTarget": "5.1",
         "noHeader": true,
         "luaLibImport": "none",
         "luaPlugins": [
             {
-                "name": "./plugin.ts"
+                "name": "./plugin"
             }
         ]
     },

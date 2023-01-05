@@ -1,4 +1,4 @@
-declare class spriteframepivot_t
+declare class spriteframepivot_t extends UserData
 {/**
  * The X coordinate of the pivot from where to rotate this frame.
  */

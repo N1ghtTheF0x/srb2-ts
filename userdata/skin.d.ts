@@ -1,4 +1,4 @@
-declare class skin_t
+declare class skin_t extends UserData
 {/**
  * Returns true if the skin is valid (i.e., it exists), false if not.
  */

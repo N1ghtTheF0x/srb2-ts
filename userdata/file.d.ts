@@ -1,4 +1,4 @@
-declare class file
+declare class file extends UserData
 {
     close(): LuaMultiReturn<[nil,string,int]> | LuaMultiReturn<[nil,string]> | boolean
     flush(): boolean | LuaMultiReturn<[nil,string,int]>

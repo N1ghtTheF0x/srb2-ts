@@ -1,4 +1,4 @@
-declare class skincolor_t
+declare class skincolor_t extends UserData
 {/**
  * The name of the skincolor. Used in the console and Player Setup menu. Names containing spaces must be put in quotes in the console.
  */

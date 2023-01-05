@@ -1,4 +1,4 @@
-declare class mouse_t
+declare class mouse_t extends UserData
 {/**
  * The change in position along the x-axis.
  */

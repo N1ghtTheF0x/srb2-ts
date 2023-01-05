@@ -1,4 +1,4 @@
-declare class ffloor_t
+declare class ffloor_t extends UserData
 {/**
  * Returns true if the FOF is valid (i.e., it exists), false if not.
  */

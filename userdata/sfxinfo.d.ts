@@ -1,4 +1,4 @@
-declare class sfxinfo_t
+declare class sfxinfo_t extends UserData
 {/**
  * The name of the sound following the sfx_ prefix, e.g., S_sfx[sfx_thok].name would return "thok".
  */

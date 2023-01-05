@@ -1,4 +1,4 @@
-declare class taglist_t
+declare class taglist_t extends UserData
 {/**
  * Returns true if the list is valid (i.e., still exists), false if not.
  */

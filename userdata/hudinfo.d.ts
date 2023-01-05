@@ -1,4 +1,4 @@
-declare class hudinfo_t
+declare class hudinfo_t extends UserData
 {/**
  * X coordinate of the HUD item (from the left of the screen). Should be a value between 0 and 320.
  */

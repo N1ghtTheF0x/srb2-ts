@@ -1,5 +1,6 @@
-declare class mobj_t
-{/**
+declare class mobj_t extends UserData
+{
+/**
  * Returns true if the Object is valid (i.e., still exists), false if not.
  */
 	readonly valid: boolean

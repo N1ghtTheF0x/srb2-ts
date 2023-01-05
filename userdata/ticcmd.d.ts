@@ -1,4 +1,4 @@
-declare class ticcmd_t
+declare class ticcmd_t extends UserData
 {/**
  * Value related to forwards/backwards buttons; positive values move the player forward, negative values move the player backwards. Ranges from -50 to 50.
  */

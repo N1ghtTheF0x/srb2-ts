@@ -1,3 +1,4 @@
+/// <reference path="./base.d.ts" />
 /// <reference path="./camera.d.ts" />
 /// <reference path="./consvar.d.ts" />
 /// <reference path="./ffloor.d.ts" />

@@ -1,4 +1,4 @@
-declare class line_t
+declare class line_t extends UserData
 {/**
  * Returns true if the linedef is valid (i.e., it exists), false if not.
  */

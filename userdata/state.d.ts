@@ -1,4 +1,4 @@
-declare class state_t
+declare class state_t extends UserData
 {/**
  * SpriteName: Sprite prefix number used for the state.
  */

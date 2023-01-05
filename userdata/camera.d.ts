@@ -1,4 +1,4 @@
-declare class camera_t
+declare class camera_t extends UserData
 {/**
  * Returns true if the third-person camera is enabled, false if not.
  */

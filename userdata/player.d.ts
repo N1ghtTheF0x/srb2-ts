@@ -1,4 +1,4 @@
-declare class player_t
+declare class player_t extends UserData
 {/**
  * Returns true if the player is valid (i.e., still exists), false if not.
  */

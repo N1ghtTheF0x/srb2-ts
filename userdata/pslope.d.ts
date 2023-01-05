@@ -1,4 +1,4 @@
-declare class pslope_t
+declare class pslope_t extends UserData
 {/**
  * Returns true if the slope is valid (i.e., it exists), false if not.
  */

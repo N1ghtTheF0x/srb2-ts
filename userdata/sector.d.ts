@@ -1,4 +1,4 @@
-declare class sector_t
+declare class sector_t extends UserData
 {/**
  * Returns true if the sector is valid (i.e., it exists), false if not.
  */

@@ -1,4 +1,4 @@
-declare class mapthing_t
+declare class mapthing_t extends UserData
 {/**
  * Returns true if the Thing is valid (i.e., it exists), false if not.
  */
