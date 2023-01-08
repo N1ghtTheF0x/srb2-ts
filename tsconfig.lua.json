@@ -16,9 +16,9 @@
     "tstl": {
         "noImplicitGlobalVariables": true,
         "noImplicitSelf": true,
-        "luaTarget": "5.1",
+        "luaTarget": "5.0",
         "noHeader": true,
-        "luaLibImport": "none",
+        "luaLibImport": "require",
         "luaPlugins": [
             {
                 "name": "./plugin"
