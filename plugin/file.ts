@@ -1,5 +1,6 @@
 import { SourceFile } from "typescript";
 import { EmitFile } from "typescript-to-lua";
+import replaceArgs from "./args";
 import replaceFixedNumbers from "./fixed";
 import replaceMathObject from "./math";
 import replaceRequire from "./require";
@@ -22,6 +23,8 @@ class SRB2Script implements EmitFile
         this.code = replaceFixedNumbers(this.code)
         // 3. global math
         this.code = replaceMathObject(this.code)
+        // 4. args -> ...
+        this.code = replaceArgs(this.code)
     }
 }
 
